@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "trowelmod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "Trowel",
+  "description": "Simple mod adding Trowel item from Quark",
   "authors": [
-    "Turnip Labs"
+    "MISSmyID"
   ],
   "contact": {
     "homepage": "",
@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.examplemod.ExampleMod"
+      "MISSmyIDMods.TrowelMod.TrowelMod"
     ],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+          "MISSmyIDMods.TrowelMod.TrowelMod"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+          "MISSmyIDMods.TrowelMod.TrowelMod"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+          "MISSmyIDMods.TrowelMod.TrowelMod"
 		]
 	},
   "mixins": [
-      "examplemod.mixins.json"
+		"TrowelMod.mixins.json"
   ],
 
   "depends": {
