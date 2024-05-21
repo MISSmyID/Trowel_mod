@@ -1,7 +1,7 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "MISSmyIDMods.TrowelMod.mixin",
+    "package": "missmyidmods.trowelmod.Mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
     ],

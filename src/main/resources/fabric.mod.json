@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "MISSmyIDMods.TrowelMod.TrowelMod"
+      "missmyidmods.trowelmod.TrowelMod"
     ],
 		"beforeGameStart": [
-          "MISSmyIDMods.TrowelMod.TrowelMod"
+          "missmyidmods.trowelmod.TrowelMod"
 		],
 		"afterGameStart": [
-          "MISSmyIDMods.TrowelMod.TrowelMod"
+          "missmyidmods.trowelmod.TrowelMod"
 		],
 		"recipesReady": [
-          "MISSmyIDMods.TrowelMod.TrowelMod"
+          "missmyidmods.trowelmod.TrowelMod"
 		]
 	},
   "mixins": [
-		"TrowelMod.mixins.json"
+		"trowelmod.mixins.json"
   ],
 
   "depends": {
