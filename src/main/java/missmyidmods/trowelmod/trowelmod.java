@@ -23,7 +23,7 @@ public class TrowelMod implements ModInitializer, GameStartEntrypoint, RecipeEnt
 
 	@Override
 	public void beforeGameStart() {
-		trowel = ItemHelper.createItem(MOD_ID,new Trowel("Trowel",32005),"trowel.png");
+		trowel = ItemHelper.createItem(MOD_ID,new Trowel("Trowel",32005),"trowel.png").setMaxStackSize(1);
 	}
 
 	@Override
