@@ -31,20 +31,29 @@ public class Trowel extends Item {
 				LinkedList<ItemStack> pool = new LinkedList<ItemStack>();
 				for (int i = 0; i <= 8; i++) {
 					checkedItem = player.inventory.getStackInSlot(i);
-					if (checkedItem != null && checkedItem.getItem() instanceof ItemBlock && checkedItem.itemID != Block.ladderOak.id) {
+					if (checkedItem != null && checkedItem.getItem() instanceof ItemBlock && checkedItem.itemID != Block.ladderOak.id ) {
 						pool.add(checkedItem);
 					}
 				}
 				if (!pool.isEmpty()) {
 					ItemStack chosenItem = pool.get(rand.nextInt(pool.size()));
 					if (blockY >= 0 && blockY < world.getHeightBlocks()) {
-						if (chosenItem.stackSize != 0) {
+						if (chosenItem.stackSize > 1) {
 							chosenItem.getItem().onItemUse(chosenItem, player, world, blockX, blockY, blockZ, side, xPlaced, yPlaced);
 							return true;
 						} else {
-								pool.remove(chosenItem);
+							chosenItem.getItem().onItemUse(chosenItem, player, world, blockX, blockY, blockZ, side, xPlaced, yPlaced);
+							pool.remove(chosenItem);
+							for (int i = 0; i <= 8 ; i++) {
+								if(player.inventory.getStackInSlot(i) != null){
+									if(player.inventory.getStackInSlot(i).stackSize == 0){
+										player.inventory.setInventorySlotContents(i, null);
+									}
+								}
 							}
 							return false;
+							}
+
 						}
 					}
 				}
