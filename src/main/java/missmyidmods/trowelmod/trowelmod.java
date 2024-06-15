@@ -36,8 +36,4 @@ public class TrowelMod implements ModInitializer, GameStartEntrypoint, RecipeEnt
 		RecipeBuilder.Shaped(MOD_ID).setShape("   "," II","S  ").addInput('I',Item.ingotIron).addInput('S',Item.stick).create("trowel",new ItemStack(trowel,1));
 	}
 
-	@Override
-	public void initNamespaces() {
-		RecipeBuilder.initNameSpace(MOD_ID);
-	}
 }
