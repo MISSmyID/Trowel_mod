@@ -1,12 +1,12 @@
 package missmyidmods.trowelmod;
 
-import missmyidmods.trowelmod.Items.Trowel;
+import missmyidmods.trowelmod.items.Trowel;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import turniplabs.halplibe.helper.ItemHelper;
+import turniplabs.halplibe.helper.ItemBuilder;
 import turniplabs.halplibe.helper.RecipeBuilder;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
@@ -16,6 +16,7 @@ public class TrowelMod implements ModInitializer, GameStartEntrypoint, RecipeEnt
     public static final String MOD_ID = "trowelmod";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static Item trowel;
+
     @Override
     public void onInitialize() {
         LOGGER.info("TrowelMod initialized.");
@@ -23,7 +24,9 @@ public class TrowelMod implements ModInitializer, GameStartEntrypoint, RecipeEnt
 
 	@Override
 	public void beforeGameStart() {
-		trowel = ItemHelper.createItem(MOD_ID,new Trowel("Trowel",32005),"trowel.png").setMaxStackSize(1);
+		trowel = new ItemBuilder(MOD_ID)
+		    .setIcon("trowelmod:item/trowel")
+		    .build(new Trowel("trowel", 32005));
 	}
 
 	@Override
@@ -33,7 +36,11 @@ public class TrowelMod implements ModInitializer, GameStartEntrypoint, RecipeEnt
 
 	@Override
 	public void onRecipesReady(){
-		RecipeBuilder.Shaped(MOD_ID).setShape("   "," II","S  ").addInput('I',Item.ingotIron).addInput('S',Item.stick).create("trowel",new ItemStack(trowel,1));
+		RecipeBuilder.Shaped(MOD_ID)
+		    .setShape("   ", " II", "S  ")
+	        .addInput('I', Item.ingotIron)
+	        .addInput('S', Item.stick)
+	        .create("trowel", new ItemStack(trowel, 1));
 	}
 
 	@Override
